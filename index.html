@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <title>Alice and Bob | Home</title>
+         <link rel="icon" type="image/x-icon" href="favvv.png">
+
+         <style>
+             .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+
+
+}
+
+/* Dropdown Button */
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+ 
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+         </style>
+
+    </head>
+
+<body>
+
+
+    <img src="logo.png" alt="Alice and Bob" class="center">
+
+
+
+    
+    <form id="form" method="POST">
+        <label  for="fname">Bitstring:</label>
+        <input type="text" name="bit"/><br><br>
+        <label for="fname">Basis:</label>
+        <input type="text" id="basis" name="basis"><br><br>
+        <label for="fname">Alice's Email:</label>
+        <input type="text" id="basis" name="a_email"><br><br>
+        <label for="fname">Bob's Email:</label>
+        <input type="text" id="basis" name="b_email"><br><br>
+        <label for="fname">Do you want Eve Detection $1.99? (Y/N):</label>
+        <input type="text" id="isEve" name="isEve"><br><br>
+        
+            
+    <br>
+<p>Protocol:</p>
+  <select name="protocol">
+  <option name="BB84">BB84</option>
+  <option name="E91">E91</option>
+
+  </select>
+
+
+    
+  </div>
+  <h1>Message Encoder</h1>
+        <p>Securely encrypt a message with a quantum key. Your encrypted message will be sent to bob via a classical channel (Email).</p>
+        <p>Once it's encoded, bob will only be able to decode it when he has the key.</p>
+       <textarea id="message" name="message" rows="6" cols="60"></textarea>
+       <br>
+  <button>Send!</button>
+  <form method="get" action="http:///DuckFinal_2022_01_30_15_46_33/index.html">
+    <button type="submit"><a href="http://alice-n-bob.com/DuckFinal_2022_01_30_15_46_33/index.html">I'm Feeling Lucky</a></button>
+</form>
+</div>
+
+
+
+
+
+
+        
+
+
+        
+
+
+        <p id="res"></p>
+         
+
+
+
+    </form>
+
+    <script type="text/javascript">
+        
+        const submitData = async (e)=>{
+            
+            e.preventDefault()
+            console.log(e.target.elements)
+            let data = {
+              "bit": e.target.elements.bit.value,
+              "basis": e.target.elements.basis.value,
+              "a_email": e.target.elements.a_email.value,
+              "b_email": e.target.elements.b_email.value,
+              "protocol": e.target.elements.protocol.value,
+              "isEve": e.target.elements.isEve.value,
+            }
+
+            var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(data);
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("http://127.0.0.1:5000", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+                
+            }
+
+    document.getElementById("form").addEventListener("submit", submitData)
+
+
+
+
+
+    </script>
+
+
+</body>
+
+
+
+</html>
