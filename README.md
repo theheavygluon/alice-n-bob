@@ -24,6 +24,8 @@ For our demonstration, we will run two different encryption protocols: BB84 and 
 
 To interface with QuTech's quantum nodes, we set up a website. 
 <img src="assets/website.png" alt="drawing" width="800"/>
+
+<br>
 In order to generate a secret key, Alice inputs to the webpage:
 * a five-digit bit string 
 * a five-part basis state
